@@ -1,5 +1,3 @@
-use std::cell;
-
 use crate::common::get_lines;
 
 pub fn solve() {
