@@ -1,4 +1,4 @@
-use crate::common::get_lines;
+use crate::helpers::get_lines;
 
 pub fn solve() {
     println!("Day 19 of 2015");

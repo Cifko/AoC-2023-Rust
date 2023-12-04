@@ -1,6 +1,6 @@
 use std::env;
 
-mod common;
+mod helpers;
 mod year_2015;
 mod year_2023;
 fn main() {

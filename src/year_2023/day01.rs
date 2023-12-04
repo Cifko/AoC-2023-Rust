@@ -1,4 +1,4 @@
-use crate::common::{find_overlapping, get_lines};
+use crate::helpers::{find_overlapping, get_lines};
 
 pub fn to_number(s: &String) -> u64 {
     match s.as_str() {

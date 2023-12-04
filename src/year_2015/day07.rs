@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use crate::common::get_lines;
+use crate::helpers::get_lines;
 
 pub enum OP {
     AND(String, String),
