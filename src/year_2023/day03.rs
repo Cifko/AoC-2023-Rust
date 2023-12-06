@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use crate::helpers::get_lines;
 
 pub fn solve() {
-    println!("Day 03");
+    println!("Day 03 of 2023");
     let lines = get_lines();
     let mut s1 = 0;
     let mut s2 = 0;
