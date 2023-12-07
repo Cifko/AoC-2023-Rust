@@ -2,16 +2,6 @@ use std::{cmp::Reverse, collections::HashMap};
 
 use crate::helpers::get_lines;
 
-fn race(time: u64, distance: u64) -> u64 {
-    let mut s = 0;
-    for t in 1..time {
-        if (time - t) * t > distance {
-            s += 1;
-        }
-    }
-    s
-}
-
 fn hand_value(hand: &String) -> u64 {
     let mut cnt = HashMap::new();
     for c in hand.chars() {
@@ -74,11 +64,11 @@ pub fn solve() {
         .map(|(a, b)| (a.to_string(), b.parse::<u64>().unwrap()))
         .collect::<Vec<_>>();
     lines.sort_by_key(|(hand, _)| (hand_value(hand), card_values(hand)));
-    for (i, (hand, value)) in lines.iter().enumerate() {
+    for (i, (_, value)) in lines.iter().enumerate() {
         s1 += value * (i + 1) as u64;
     }
     lines.sort_by_key(|(hand, _)| (hand_value_j(hand), card_values_j(hand)));
-    for (i, (hand, value)) in lines.iter().enumerate() {
+    for (i, (_, value)) in lines.iter().enumerate() {
         s2 += value * (i + 1) as u64;
     }
     println!("Part 1 {}", s1);
