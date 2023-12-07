@@ -1,13 +1,11 @@
 use crate::helpers::get_lines;
 
-
 pub fn solve() {
     println!("Day 8 of 2015");
     let lines = get_lines();
     let mut s1 = 0;
     let mut s2 = 0;
     for line in &lines {
-        let mut skip = 0;
         let mut last_char = ' ';
         s1 += 2;
         s2 += 2;

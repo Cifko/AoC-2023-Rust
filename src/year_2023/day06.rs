@@ -1,8 +1,3 @@
-use std::{
-    collections::{btree_map::Range, HashMap, HashSet},
-    hash::Hash,
-};
-
 use crate::helpers::get_lines;
 
 fn race(time: u64, distance: u64) -> u64 {
