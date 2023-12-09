@@ -14,6 +14,9 @@ enum Outcome {
 }
 
 impl Item {
+    pub fn new(cost: i64, dmg: i64, arm: i64) -> Self {
+        Self { cost, dmg, arm }
+    }
     pub fn from(nums: Vec<i64>) -> Self {
         Self {
             cost: nums[0],
@@ -21,13 +24,6 @@ impl Item {
             arm: nums[2],
         }
     }
-}
-
-enum What {
-    Weapons,
-    Armor,
-    Rigns,
-    Main,
 }
 
 fn win(boss_hp: i64, boss_dmg: i64, boss_arm: i64, dmg: i64, armor: i64) -> bool {
@@ -86,35 +82,31 @@ fn test_items(
 pub fn solve() {
     println!("Day 21 of 2015");
     let lines = get_lines();
-    let mut what = What::Weapons;
-    let mut weapons = Vec::new();
-    let mut armors = Vec::new();
-    let mut rings = Vec::new();
-    let mut main = Vec::new();
-    for line in &lines {
-        if line.is_empty() {
-            what = match what {
-                What::Weapons => What::Armor,
-                What::Armor => What::Rigns,
-                What::Rigns => What::Main,
-                What::Main => break,
-            };
-        } else {
-            let (_, nums) = parse(line);
-            if nums.is_empty() {
-                continue;
-            }
-            match what {
-                What::Weapons => weapons.push(Item::from(nums)),
-                What::Armor => armors.push(Item::from(nums)),
-                What::Rigns => rings.push(Item::from(nums[1..].to_vec())),
-                What::Main => main.push(nums),
-            }
-        }
-    }
-    let boss_hp = main[0][0];
-    let boss_dmg = main[1][0];
-    let boss_arm = main[2][0];
+    let weapons = vec![
+        Item::new(8, 4, 0),
+        Item::new(10, 5, 0),
+        Item::new(25, 6, 0),
+        Item::new(40, 7, 0),
+        Item::new(74, 8, 0),
+    ];
+    let armors = vec![
+        Item::new(13, 0, 1),
+        Item::new(31, 0, 2),
+        Item::new(53, 0, 3),
+        Item::new(75, 0, 4),
+        Item::new(102, 0, 5),
+    ];
+    let rings = vec![
+        Item::new(25, 1, 0),
+        Item::new(50, 2, 0),
+        Item::new(100, 3, 0),
+        Item::new(20, 0, 1),
+        Item::new(40, 0, 2),
+        Item::new(80, 0, 3),
+    ];
+    let boss_hp = parse(&lines[0]).1[0];
+    let boss_dmg = parse(&lines[1]).1[0];
+    let boss_arm = parse(&lines[2]).1[0];
     let mut s1 = i64::MAX;
     let mut s2 = 0;
     for weapon in &weapons {
