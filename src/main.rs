@@ -2,6 +2,7 @@ use std::{env, time::Instant};
 
 mod helpers;
 mod year_2015;
+mod year_2016;
 mod year_2023;
 fn main() {
     let start = Instant::now();
@@ -11,6 +12,7 @@ fn main() {
         let day = args[2].parse::<u8>().unwrap();
         match year {
             2015 => year_2015::solve(day),
+            2016 => year_2016::solve(day),
             2023 => year_2023::solve(day),
             _ => println!("Unknown year {}", year),
         }
