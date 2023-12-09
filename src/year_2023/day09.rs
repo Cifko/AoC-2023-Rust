@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use crate::helpers::get_lines;
+use crate::helpers::{get_lines, parse};
 
 fn compute(nums: &Vec<i64>) -> (i64, i64) {
     if nums.iter().all(|x| *x == 0) {
@@ -13,12 +13,6 @@ fn compute(nums: &Vec<i64>) -> (i64, i64) {
         .collect::<Vec<_>>();
     let (first, last) = compute(&next_level);
     (nums.first().unwrap() - first, last + nums.last().unwrap())
-}
-
-fn parse(input: &str) -> (Vec<&str>, Vec<i64>) {
-    let parts = input.split_whitespace().collect::<Vec<_>>();
-    let nums = parts.iter().filter_map(|x| x.parse::<i64>().ok()).collect();
-    (parts, nums)
 }
 
 pub fn solve() {
