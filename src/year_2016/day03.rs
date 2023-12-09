@@ -1,7 +1,7 @@
 use crate::helpers::{get_lines, parse};
 
 pub fn solve() {
-    println!("Day 3 of 2015");
+    println!("Day 3 of 2016");
     let lines = get_lines();
     let mut s1 = 0;
     let mut triangles = vec![Vec::<i64>::new(); lines.len()];
