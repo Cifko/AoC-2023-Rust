@@ -6,6 +6,7 @@ mod day05;
 mod day06;
 mod day07;
 mod day08;
+mod day09;
 
 pub fn solve(day: u8) {
     match day {
@@ -17,6 +18,7 @@ pub fn solve(day: u8) {
         6 => day06::solve(),
         7 => day07::solve(),
         8 => day08::solve(),
+        9 => day09::solve(),
         _ => println!("Unknown day {}", day),
     }
 }
