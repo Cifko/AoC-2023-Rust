@@ -31,3 +31,17 @@ pub fn find_overlapping(input: &str, pattern: &str) -> Vec<String> {
 
     results
 }
+
+pub fn modulo_pow<T: num::PrimInt + std::ops::ShrAssign>(base: T, exponent: T, modulo: T) -> T {
+    let mut result = T::one();
+    let mut base = base % modulo;
+    let mut exponent = exponent;
+    while exponent > T::zero() {
+        if exponent & T::one() == T::one() {
+            result = (result * base) % modulo;
+        }
+        exponent >>= T::one();
+        base = (base * base) % modulo;
+    }
+    result
+}
