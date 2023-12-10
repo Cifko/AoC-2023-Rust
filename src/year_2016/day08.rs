@@ -45,25 +45,6 @@ pub fn solve() {
                 }
                 _ => panic!("Unknown instruction"),
             },
-            // ["rotate", "row", _, "by", s] => {
-            //     let (a, b) = parse(s);
-            //     let mut tmp = vec![false; 50];
-            //     for i in 0..50 {
-            //         tmp[(i + a) % 50] = v[b][i];
-            //     }
-            //     v[b] = tmp;
-            // }
-            // ["rotate", "column", _, "by", s] => {
-            //     let (a, b) = parse(s);
-            //     let mut tmp = vec![false; 6];
-            //     for i in 0..6 {
-            //         tmp[(i + a) % 6] = v[i][b];
-            //     }
-            //     for i in 0..6 {
-            //         v[i][b] = tmp[i];
-            //     }
-            // }
-            // _ => panic!("Unknown instruction"),
             _ => (),
         }
     }
