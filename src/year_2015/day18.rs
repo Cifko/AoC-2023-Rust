@@ -8,31 +8,31 @@ pub fn solve() {
         grid.add_row(line.chars().collect());
     }
     let mut grid2 = grid.clone();
-    grid2.grid[0][0].value = '#';
-    grid2.grid[grid.grid.len() - 1][0].value = '#';
-    grid2.grid[grid.grid.len() - 1][grid.grid[0].len() - 1].value = '#';
-    grid2.grid[0][grid.grid[0].len() - 1].value = '#';
+    grid2.grid[0][0] = '#';
+    grid2.grid[grid.grid.len() - 1][0] = '#';
+    grid2.grid[grid.grid.len() - 1][grid.grid[0].len() - 1] = '#';
+    grid2.grid[0][grid.grid[0].len() - 1] = '#';
     for _ in 0..100 {
-        grid.apply_8(|cell, neighbours| {
+        grid.apply_8(|&cell, neighbours| {
             let on = neighbours
                 .into_iter()
-                .filter(|neighbour| neighbour.value == '#')
+                .filter(|&&neighbour| neighbour == '#')
                 .count();
-            if on == 3 || (cell.value == '#' && on == 2) {
+            if on == 3 || (cell == '#' && on == 2) {
                 '#'
             } else {
                 '.'
             }
         });
-        grid2.apply_8(|cell, neighbours| {
+        grid2.apply_8(|&cell, neighbours| {
             if neighbours.len() == 3 {
                 return '#';
             }
             let on = neighbours
                 .into_iter()
-                .filter(|neighbour| neighbour.value == '#')
+                .filter(|&&neighbour| neighbour == '#')
                 .count();
-            if on == 3 || (cell.value == '#' && on == 2) {
+            if on == 3 || (cell == '#' && on == 2) {
                 '#'
             } else {
                 '.'
