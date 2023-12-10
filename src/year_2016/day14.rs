@@ -1,7 +1,7 @@
 use crate::helpers::get_lines;
 
 pub fn solve() {
-    println!("Day 14 of 2015");
+    println!("Day 14 of 2016");
     let line = get_lines();
     let mut s1 = 0;
     let mut s2 = 0;

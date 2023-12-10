@@ -10,7 +10,7 @@ fn find_next(i: usize, line: &str) -> (usize, String) {
 }
 
 pub fn solve() {
-    println!("Day 5 of 2015");
+    println!("Day 5 of 2016");
     let lines = get_lines();
     let line = &lines[0];
     let mut s1 = String::new();
