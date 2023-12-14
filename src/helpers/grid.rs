@@ -1,6 +1,6 @@
 use std::fmt::Display;
 
-#[derive(Clone)]
+#[derive(Clone, Hash, PartialEq, Eq)]
 pub struct Grid<T> {
     pub grid: Vec<Vec<T>>,
 }
@@ -8,6 +8,18 @@ pub struct Grid<T> {
 impl<T: Clone + Default> Grid<T> {
     pub fn new() -> Self {
         Grid { grid: Vec::new() }
+    }
+
+    pub fn width(&self) -> usize {
+        self.grid[0].len()
+    }
+
+    pub fn height(&self) -> usize {
+        self.grid.len()
+    }
+
+    pub fn add_rows(&mut self, rows: Vec<Vec<T>>) {
+        self.grid.extend(rows);
     }
 
     pub fn add_row(&mut self, row: Vec<T>) {
