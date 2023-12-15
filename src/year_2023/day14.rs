@@ -41,7 +41,7 @@ fn score(grid: &Grid<char>) -> u64 {
 }
 
 pub fn solve() {
-    println!("Day 12 of 2023");
+    println!("Day 14 of 2023");
     let lines = get_lines();
     let mut s1 = 0u64;
     let mut s2 = 0u64;

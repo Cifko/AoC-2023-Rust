@@ -6,7 +6,7 @@ use std::{
 use crate::helpers::{get_lines, parse, Grid};
 
 pub fn solve() {
-    println!("Day 12 of 2023");
+    println!("Day 24 of 2023");
     let lines = get_lines();
     let mut s1 = 0u64;
     let mut s2 = 0u64;

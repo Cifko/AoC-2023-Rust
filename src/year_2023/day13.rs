@@ -53,7 +53,7 @@ fn solution(grid: &Vec<Vec<char>>) -> (usize, usize) {
 }
 
 pub fn solve() {
-    println!("Day 12 of 2023");
+    println!("Day 13 of 2023");
     let mut lines = get_lines();
     lines.push("".to_string());
     let mut s1 = 0;
