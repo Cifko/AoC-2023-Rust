@@ -1,4 +1,8 @@
-use std::{fmt::Display, ops::Index};
+use std::{
+    fmt::{Debug, Display},
+    ops::Index,
+    str::FromStr,
+};
 
 use num::{PrimInt, ToPrimitive};
 
@@ -189,7 +193,7 @@ impl<T, I: PrimInt + ToPrimitive> Index<(I, I)> for Grid<T> {
     }
 }
 
-impl Display for Grid<char> {
+impl<T: Display> Display for Grid<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         for row in &self.grid {
             for cell in row {
