@@ -70,6 +70,17 @@ pub fn solve() {
             &mut HashMap::new(),
         ));
     }
+    for y in 0..g.height() {
+        s2 = s2.max(get_beams(-1, y as i64, 1, 0, &g, &mut HashMap::new()));
+        s2 = s2.max(get_beams(
+            g.width() as i64,
+            y as i64,
+            -1,
+            0,
+            &g,
+            &mut HashMap::new(),
+        ));
+    }
     println!("Part 1 {}", s1);
     println!("Part 2 {}", s2);
 }
