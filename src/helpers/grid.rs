@@ -1,4 +1,6 @@
-use std::fmt::Display;
+use std::{fmt::Display, ops::Index};
+
+use num::{PrimInt, ToPrimitive};
 
 #[derive(Clone, Hash, PartialEq, Eq)]
 pub struct Grid<T> {
@@ -174,6 +176,16 @@ impl<T: Clone + Default> Grid<T> {
             }
         }
         None
+    }
+}
+
+impl<T, I: PrimInt + ToPrimitive> Index<(I, I)> for Grid<T> {
+    type Output = T;
+
+    fn index(&self, (x, y): (I, I)) -> &Self::Output {
+        &self.grid[y.to_usize().unwrap()]
+            .get(x.to_usize().unwrap())
+            .unwrap()
     }
 }
 
