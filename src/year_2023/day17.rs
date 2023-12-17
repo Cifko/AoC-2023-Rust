@@ -47,8 +47,6 @@ fn flow(min_c: usize, max_c: usize, g: &Grid<u64>) -> u64 {
     panic!("he?");
 }
 
-fn lines_to_grid()
-
 pub fn solve() {
     println!("Day 17 of 2023");
     let lines = get_lines();
